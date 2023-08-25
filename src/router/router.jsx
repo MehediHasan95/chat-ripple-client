@@ -4,6 +4,7 @@ import Authentication from "../auth/Authentication";
 import ChatRoom from "../pages/ChatRoom";
 import RequiredAuth from "./RequiredAuth";
 import ChatArea from "../pages/ChatArea";
+import ErrorPage from "../shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/auth",
     element: <Authentication />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ]);
 

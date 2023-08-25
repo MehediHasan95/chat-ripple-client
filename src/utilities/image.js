@@ -6,5 +6,6 @@ export const female_dp =
 import emptyBox from "../assets/empty-box.png";
 import say_hello from "../assets/say_hello.gif";
 import google from "../assets/google.png";
+import error from "../assets/404.png";
 
-export { emptyBox, say_hello, google };
+export { emptyBox, say_hello, google, error };
