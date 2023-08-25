@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap");
+
+.google_shadow_box {
+  transition: 0.5s;
+}
+.google_shadow_box:hover {
+  transition: 0.5s;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
