@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/firebaseSetup";
 import moment from "moment/moment";
-
+import axios from "axios";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
@@ -38,8 +38,23 @@ const AuthProvider = ({ children }) => {
 
   const signInWithGoogle = () =>
     signInWithPopup(auth, new GoogleAuthProvider());
-
   const signOutUser = () => signOut(auth);
+
+  useEffect(() => {
+    if (user) {
+      setInterval(() => {
+        axios
+          .patch(
+            `https://chat-ripple-server.vercel.app/activity-status/${user?.uid}`,
+            {
+              status: true,
+              activeFromNow: time,
+            }
+          )
+          .then(({ data }) => {});
+      }, 1000);
+    }
+  }, [time, user]);
 
   return (
     <AuthContext.Provider

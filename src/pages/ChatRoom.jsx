@@ -16,21 +16,21 @@ const ChatRoom = () => {
   useTitle("Messenger");
 
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <div className="grid lg:grid-cols-3">
-        <div className="lg:col-span-1 p-3">
+    <div className="">
+      <div className="grid lg:grid-cols-4">
+        <div className="lg:col-span-1 p-3 bg-base-100">
           <div className="flex justify-between items-center mb-5">
             <h1 className="font-semibold text-xl">Chats</h1>
             <Link to="/">
               <FontAwesomeIcon
                 icon={faHome}
-                className="hover:text-frenchPlum"
+                className="hover:text-bluePigment"
                 title="Back to Home"
               />
             </Link>
           </div>
 
-          <div className="flex flex-row lg:flex-col overflow-auto scroll-container">
+          <div className="flex flex-row lg:flex-col overflow-auto scroll-container  space-x-5 lg:space-x-0">
             {!myLoading ? (
               myFriends.map((friends) => (
                 <ChatList
@@ -53,13 +53,13 @@ const ChatRoom = () => {
             )}
           </div>
         </div>
-        <div className="lg:col-span-2  min-h-screen grid content-between">
+        <div className="lg:col-span-3 min-h-screen grid content-between">
           {location.pathname === "/chat-room" ? (
             <div className="min-h-screen grid place-items-center">
               <div className="text-center">
                 <h1 className="text-3xl font-bold">
                   Welcome to{" "}
-                  <span className="text-frenchPlum font-signika">
+                  <span className="text-bluePigment font-signika">
                     <FontAwesomeIcon icon={faComments} className="me-2" />
                     Chat <span className="underline">Ripple</span>
                   </span>

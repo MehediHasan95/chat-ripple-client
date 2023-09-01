@@ -5,7 +5,11 @@ import axios from "axios";
 const useProfile = () => {
   const { user, loading } = useAuth();
 
-  const { data: currentProfile, isLoading } = useQuery({
+  const {
+    refetch,
+    data: currentProfile,
+    isLoading,
+  } = useQuery({
     queryKey: ["user-profile"],
     enabled: !loading,
     queryFn: async () => {
@@ -15,7 +19,8 @@ const useProfile = () => {
       return res.data;
     },
   });
-  return [currentProfile, isLoading];
+
+  return [currentProfile, isLoading, refetch];
 };
 
 export default useProfile;

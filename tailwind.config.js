@@ -7,13 +7,13 @@ export default {
         signika: ["Signika Negative", "sans-serif"],
       },
       colors: {
-        frenchPlum: "#851A50",
+        bluePigment: "#262C9C",
         platinum: "#E5E4E9",
         desire: "#F52D3A",
         pastelGreen: "#00DD73",
       },
       backgroundColor: {
-        frenchPlum: "#851A50",
+        bluePigment: "#262C9C",
         platinum: "#E5E4E9",
         desire: "#F52D3A",
         pastelGreen: "#00DD73",

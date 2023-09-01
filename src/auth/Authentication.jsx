@@ -4,7 +4,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import {
+  faComments,
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { google } from "../utilities/image";
 import useTitle from "../hooks/useTtile";
 
@@ -18,6 +23,7 @@ const Authentication = () => {
 
   const [isNew, setIsNew] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,7 +43,6 @@ const Authentication = () => {
               gender,
               uid,
               create,
-              dp,
               my_friends: [],
               send_request: [],
             })
@@ -92,7 +97,7 @@ const Authentication = () => {
     <div className="min-h-screen grid place-items-center bg-base-300">
       <div className="w-11/12 md:w-3/6 lg:w-3/12 bg-base-100 p-5 shadow-2xl rounded-lg">
         <div className="text-center my-5">
-          <h1 className="text-frenchPlum text-2xl font-bold font-signika">
+          <h1 className="text-bluePigment text-2xl font-bold font-signika">
             {isNew ? "Sign Up" : "Welcome"} to{" "}
             <FontAwesomeIcon icon={faComments} className="me-2" />
             Chat <span className="underline">Ripple</span>
@@ -132,27 +137,34 @@ const Authentication = () => {
           <p className="text-red-600 text-xs mb-3">
             {errors.email && <span>{errors?.email?.message}</span>}
           </p>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters long",
-              },
-              pattern: {
-                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-                message:
-                  "Password must contain at least one uppercase letter, one lowercase letter, and one digit",
-              },
-            })}
-            className="w-full p-3 outline-none border"
-            placeholder="Password"
-          />
+          <div className="relative">
+            <input
+              type={showPass ? "text" : "password"}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters long",
+                },
+                pattern: {
+                  value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                  message:
+                    "Password must contain at least one uppercase letter, one lowercase letter, and one digit",
+                },
+              })}
+              className="w-full p-3 outline-none border"
+              placeholder="Password"
+            />
+            <FontAwesomeIcon
+              onClick={() => setShowPass(!showPass)}
+              icon={showPass ? faEye : faEyeSlash}
+              className="absolute top-4 right-3 cursor-pointer text-gray-400"
+            />
+          </div>
           <p className="text-red-600 text-xs mb-3">
             {errors.password && <span>{errors?.password?.message}</span>}
           </p>
-          {isNew && (
+          {/* {isNew && (
             <input
               type="text"
               {...register("dp", {
@@ -166,7 +178,7 @@ const Authentication = () => {
               className="w-full p-3 outline-none border"
               placeholder="Photo url"
             />
-          )}
+          )} */}
           <p className="text-red-600 text-xs mb-3">
             {errors.dp && <span>{errors?.dp?.message}</span>}
           </p>
@@ -184,7 +196,7 @@ const Authentication = () => {
             </select>
           )}
 
-          <button className="w-full p-3 bg-frenchPlum text-white border-none">
+          <button className="w-full p-3 bg-bluePigment text-white border-none">
             {isNew ? (
               <>
                 {loader ? (
@@ -210,7 +222,7 @@ const Authentication = () => {
           {isNew ? "Already a user?" : "Need an account?"}{" "}
           <button
             onClick={() => setIsNew(!isNew)}
-            className="border-none underline hover:text-frenchPlum hover:font-bold uppercase"
+            className="border-none underline hover:text-bluePigment hover:font-bold uppercase"
           >
             {isNew ? "Sign In" : "Sign Up"}
           </button>

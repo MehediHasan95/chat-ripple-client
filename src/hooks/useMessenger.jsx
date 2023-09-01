@@ -4,13 +4,12 @@ import axios from "axios";
 
 const useMessenger = (id) => {
   const { loading } = useAuth();
-
   const {
     refetch,
-    data: userMessage,
+    data: message,
     isLoading,
   } = useQuery({
-    queryKey: ["messenger"],
+    queryKey: ["message-profile"],
     enabled: !loading,
     queryFn: async () => {
       const res = await axios.get(
@@ -19,8 +18,7 @@ const useMessenger = (id) => {
       return res.data;
     },
   });
-
-  return [userMessage, refetch, isLoading];
+  return [message, refetch, isLoading];
 };
 
 export default useMessenger;

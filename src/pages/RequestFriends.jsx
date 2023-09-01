@@ -3,6 +3,8 @@ import useRequestFriends from "../hooks/useRequestFriends";
 import { MALE } from "../utilities/constant";
 import { emptyBox, female_dp, male_dp } from "../utilities/image";
 import useMyFriends from "../hooks/useMyFriends";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const RequestFriends = () => {
   const [requestFriends, refetch, isLoading, user] = useRequestFriends();
@@ -56,9 +58,9 @@ const RequestFriends = () => {
           requestFriends.map(({ _id, uid, fullName, gender, dp }) => (
             <div
               key={_id}
-              className="flex items-center space-x-3 p-2 rounded-lg border"
+              className="flex items-center space-x-3 p-2 rounded-lg bg-base-100"
             >
-              <div className="w-20 h-20 rounded-lg overflow-hidden border">
+              <div className="w-20 h-20 rounded-full overflow-hidden shadow">
                 <img
                   src={dp ? dp : gender === MALE ? male_dp : female_dp}
                   alt={fullName}
@@ -70,15 +72,17 @@ const RequestFriends = () => {
                 <div className="space-x-2">
                   <button
                     onClick={() => handleConfirmRequest(_id, uid)}
+                    title="Accept"
                     className="px-6 py-1 bg-pastelGreen text-white rounded-full border-none"
                   >
-                    Confirm
+                    <FontAwesomeIcon icon={faCheck} />
                   </button>
                   <button
                     onClick={() => handleDeleteRequest(_id, uid)}
+                    title="Delete"
                     className="px-6 py-1 bg-desire text-white rounded-full border-none"
                   >
-                    Delete
+                    <FontAwesomeIcon icon={faXmark} />
                   </button>
                 </div>
               </div>
