@@ -30,6 +30,7 @@ const ChatArea = () => {
   const { uid, fullName, gender, dp, status, activeFromNow } = !isLoading
     ? message
     : {};
+
   useTitle(fullName);
   useEffect(() => {
     refetch();
@@ -96,12 +97,12 @@ const ChatArea = () => {
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
           </div>
-          <div className="h-[52rem] overflow-y-auto message_box bg-base-200">
+          <div className="h-[88vh] overflow-y-auto message_box bg-base-200">
             {!isLoading && message[user?.uid] ? (
               message[user?.uid]?.map(
                 ({ message, fullName, time, dp, sender }, index) => (
                   <div key={index} className="p-3 flex space-x-2 items-center">
-                    <div className={`avatar ${status ? "online" : "offline"}`}>
+                    <div className="avatar">
                       <div className="w-8 rounded-full border">
                         <img
                           src={dp ? dp : gender === MALE ? male_dp : female_dp}
@@ -187,7 +188,7 @@ const ChatArea = () => {
             </form>
           </div>
         </div>
-        <div className="col-span-1 text-center bg-base-100">
+        <div className="col-span-1 text-center bg-base-100 hidden lg:block">
           <div className={`avatar ${status ? "online" : "offline"}  mt-5`}>
             <div className="w-24 rounded-full border">
               <img

@@ -1,4 +1,8 @@
-import { faComments, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClock,
+  faComments,
+  faSignOut,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAuth from "../hooks/useAuth";
 
@@ -15,10 +19,12 @@ const Navbar = () => {
           </h1>
         </div>
         <div className="flex-none space-x-5">
-          <p>Today {create}</p>
+          <p className="hidden lg:block">
+            <FontAwesomeIcon icon={faClock} /> Today {create}
+          </p>
           <button
             onClick={() => signOutUser()}
-            className="bg-desire text-white px-4 py-1 rounded-full uppercase"
+            className="bg-desire text-white px-2 lg:px-4 py-1 text-xs lg:text-sm rounded-full uppercase"
           >
             Sign Out <FontAwesomeIcon icon={faSignOut} />
           </button>
