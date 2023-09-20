@@ -1,22 +1,18 @@
-# chat-ripple-client
+### chat-ripple-client
 
 # Chat Ripple
 
-### Live website: [Go Live](https://chat-ripple.web.app/)
+### [🌍LIVE](https://chat-ripple.web.app/)
 
-Features:
+In creating this project, I used MERN stack technology. This is a messenger website. Our ultimate online destination for making new friends and fostering meaningful connections allows users to easily discover and connect with new friends from around the world in a safe and interactive environment. Also, users communicate with friends in real-time.
 
-- User can log in/register through their information.
-- Users can see the suggested friend list.
-- Users can send friend request any suggested friends.
-- Users can see the friend request that sent him the request
-- If users want they can confirm or delete the request
-- Finally, users can see their friends list and chat with their friends.
+## Features:
 
-Technology:
+- Login or register and connect with the Google authentication system.
+- Users can discover new friends and send friend requests. They can also cancel friend requests.
+- Users can see who has sent them a friend request. If they want, you can accept or delete their request.
+- Users can view their friend list. And can chat with them in real-time.
 
-- React JS
-- Moment JS
-- Node JS
-- Express JS
-- Mongodb
+## Technologies:
+
+React JS - React Router - React Hook Form - Axios - React Emoji Picker - Firebase - React Query - Moment JS - Node JS - Express JS - MongoDB.
