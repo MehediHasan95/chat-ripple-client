@@ -7,5 +7,20 @@ import emptyBox from "../assets/empty-box.png";
 import say_hello from "../assets/say_hi.json";
 import google from "../assets/google.png";
 import error from "../assets/404.png";
+import header_image from "../assets/header.png";
+import chat from "../assets/chat.png";
+import shield from "../assets/shield.png";
+import group from "../assets/group.png";
+import according from "../assets/according.png";
 
-export { emptyBox, say_hello, google, error };
+export {
+  emptyBox,
+  say_hello,
+  google,
+  error,
+  header_image,
+  chat,
+  shield,
+  group,
+  according,
+};

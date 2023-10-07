@@ -1,12 +1,10 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Spinner from "../shared/Spinner";
 import { useEffect, useState } from "react";
 
 const RequiredAuth = ({ children }) => {
   const { user, loading } = useAuth();
-  const location = useLocation();
-
   const [waiting, setWaiting] = useState(true);
 
   useEffect(() => {
@@ -21,7 +19,7 @@ const RequiredAuth = ({ children }) => {
     } else if (user) {
       return children;
     } else {
-      return <Navigate to="/auth" state={{ from: location }} replace />;
+      return <Navigate to="/auth" />;
     }
   }
 };

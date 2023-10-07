@@ -5,13 +5,18 @@ import ChatRoom from "../pages/ChatRoom";
 import RequiredAuth from "./RequiredAuth";
 import ChatArea from "../pages/ChatArea";
 import ErrorPage from "../shared/ErrorPage";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Root />,
+  },
+  {
+    path: "/home",
     element: (
       <RequiredAuth>
-        <Root />
+        <Home />
       </RequiredAuth>
     ),
   },

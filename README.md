@@ -16,3 +16,13 @@ In creating this project, I used MERN stack technology. This is a messenger webs
 ## Technologies:
 
 React JS - React Router - React Hook Form - Axios - React Emoji Picker - Firebase - React Query - Moment JS - Node JS - Express JS - MongoDB.
+
+## Screenshot
+
+### Dashboard
+
+![dashboard](https://i.ibb.co/tsKNzKW/screencapture-chat-ripple-web-app-2023-10-07-19-29-17.png)
+
+### Message
+
+![dashboard](https://i.ibb.co/Qf5cX2K/Screenshot-2023-10-07-193148.png)

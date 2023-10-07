@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,12 +26,10 @@ const Authentication = () => {
   const [showPass, setShowPass] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
   useTitle(isNew ? "Sign Up" : "Sign In");
 
   const onSubmit = (data) => {
-    const { fullName, gender, email, password, dp } = data;
+    const { fullName, gender, email, password } = data;
     setLoader(true);
     if (isNew) {
       createUser(email, password)
@@ -49,7 +47,7 @@ const Authentication = () => {
             .then(({ data }) => {
               if (data.success) {
                 setLoader(false);
-                navigate(from, { replace: true });
+                navigate("/home");
               }
             });
         })
@@ -60,7 +58,7 @@ const Authentication = () => {
     } else {
       signInUser(email, password)
         .then(() => {
-          navigate(from, { replace: true });
+          navigate("/home");
         })
         .catch((err) => {
           setLoader(false);
@@ -86,7 +84,7 @@ const Authentication = () => {
           .then(({ data }) => {
             if (data.success) {
               setLoader(false);
-              navigate(from, { replace: true });
+              navigate("/home");
             }
           });
       }

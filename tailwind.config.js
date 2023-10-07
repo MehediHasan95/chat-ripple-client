@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         signika: ["Signika Negative", "sans-serif"],
+        patuaOne: ["Patua One", "cursive"],
       },
       colors: {
         bluePigment: "#262C9C",
